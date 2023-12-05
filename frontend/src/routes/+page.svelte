@@ -5,8 +5,10 @@
   let mouseX, mouseY = 0
 
   function showModal(e) {
-    mouseX = e.clientX
-    mouseY = e.clientY
+    const maxX = window.innerWidth - 100 //Arbitrary placeholder numbers
+    const maxY = window.innerHeight - 60 //Arbitrary placeholder numbers
+    mouseX = Math.min(e.clientX, maxX)
+    mouseY = Math.min(e.clientY, maxY)
     modalVisible.set(true)
   }
 
