@@ -1,22 +1,32 @@
 <script>
   import Modal from '/src/lib/Modal.svelte'
+  import { modalVisible } from '/src/stores/modalVisible.js'
 
-  let modalVisible = false
   let mouseX, mouseY = 0
 
   function showModal(e) {
     mouseX = e.clientX
     mouseY = e.clientY
-    modalVisible = true
+    modalVisible.set(true)
   }
 
-  function hideModal() {
-    modalVisible = false
-  }
 </script>
 
-<button on:click={showModal}>Show Modal</button>
+<div class="page" on:click={showModal}>
 
-{#if modalVisible}
-  <Modal x={mouseX} y={mouseY} />
-{/if}
+  <Modal mouseX={mouseX} mouseY={mouseY}/>
+
+</div>
+  
+<style>
+  :global(body, html) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    height: 100%;
+    width: 100%;
+    background-color: #F00;
+  }
+</style>
