@@ -1,7 +1,5 @@
 <script>
   import Modal from '/src/lib/Modal.svelte'
-  import { modalVisible } from '/src/stores/modalVisible.js'
-
   let mouseX, mouseY = 0
 
   function showModal(e) {

@@ -1,9 +1,7 @@
 <script>
-  import { modalVisible } from '/src/stores/modalVisible.js'
   export let mouseX, mouseY = 0
 
-  function hideModal() {
-    modalVisible.set(false)
+  let modalVisible = false
   }
 </script>
 
