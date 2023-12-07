@@ -33,7 +33,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: #F00;
+    background-color: rgba(0, 0, 0, 0);
   }
   .modal {
     position: absolute;
