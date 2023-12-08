@@ -6,10 +6,11 @@
 </script>
 
 <Modal />
+<a href="/">Home</a>
 
-  <img src={grey_knights} />
-  <img src={marinevsnids} />
-  <img src={marinevsnids2} />
+<img src={grey_knights} />
+<img src={marinevsnids} />
+<img src={marinevsnids2} />
 
 <style>
   img {
