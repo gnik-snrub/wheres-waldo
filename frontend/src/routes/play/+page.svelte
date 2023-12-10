@@ -13,14 +13,23 @@ function onImageClick(e) {
 
 <a href="/">Home</a>
 
-<img src={marinevsnids} on:click={onImageClick} />
-<img src={grey_knights} on:click={onImageClick} />
-<img src={marinevsnids2} on:click={onImageClick} />
-<Modal bind:toggleModal={makeModal} />
+<main id="gameArea">
+  <img src={marinevsnids} on:click={onImageClick} />
+  <img src={grey_knights} on:click={onImageClick} />
+  <img src={marinevsnids2} on:click={onImageClick} />
+  <Modal bind:toggleModal={makeModal} />
+</main>
+
 
 <style>
   img {
-    max-width: 100%;
+    width: 1200px;
     height: auto;
+  }
+  #gameArea {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
 </style>
