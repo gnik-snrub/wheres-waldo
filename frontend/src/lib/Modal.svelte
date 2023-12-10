@@ -2,16 +2,18 @@
   import { slide } from 'svelte/transition'
 
   let modalVisible = false
-  let mouseX, mouseY = 0
+  let mouseX, mouseY, imgX, imgY = 0
 
   function toggleModal(e) {
     if (modalVisible) {
       modalVisible = false
     } else {
       const maxX = window.innerWidth - 100 //Arbitrary placeholder numbers
-      const maxY = window.innerHeight - 60 //Arbitrary placeholder numbers
-      mouseX = Math.min(e.clientX, maxX)
-      mouseY = Math.min(e.clientY, maxY)
+      const maxY = document.body.scrollHeight - 60 //Arbitrary placeholder numbers
+      mouseX = Math.round(Math.min(e.clientX + window.pageXOffset, maxX))
+      mouseY = Math.round(Math.min(e.clientY + window.pageYOffset, maxY))
+      imgX = e.offsetX
+      imgY = e.offsetY
       modalVisible = true
     }
   }
@@ -20,10 +22,11 @@
 <div class="modalWrapper" on:click={toggleModal}>
   {#if modalVisible}
     <div class='modal' on:click|stopPropagation transition:slide|local style="left: {mouseX}px; top: {mouseY}px">
-      {mouseX}, {mouseY}
     </div>
   {/if}
 </div>
+    <p>Page position: {mouseX}, {mouseY}</p>
+    <p>Image position: {imgX}, {imgY}</p>
 
 
 <style>
