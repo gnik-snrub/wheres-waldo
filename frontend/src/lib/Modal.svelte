@@ -4,7 +4,7 @@
   let modalVisible = false
   let mouseX, mouseY, imgX, imgY = 0
 
-  function toggleModal(e) {
+  export function toggleModal(e) {
     if (modalVisible) {
       modalVisible = false
     } else {
@@ -19,14 +19,12 @@
   }
 </script>
 
-<div class="modalWrapper" on:click={toggleModal}>
-  {#if modalVisible}
-    <div class='modal' on:click|stopPropagation transition:slide|local style="left: {mouseX}px; top: {mouseY}px">
-    </div>
-  {/if}
-</div>
+{#if modalVisible}
+  <div class='modal' on:click|stopPropagation transition:slide|local style="left: {mouseX}px; top: {mouseY}px">
     <p>Page position: {mouseX}, {mouseY}</p>
     <p>Image position: {imgX}, {imgY}</p>
+  </div>
+{/if}
 
 
 <style>
