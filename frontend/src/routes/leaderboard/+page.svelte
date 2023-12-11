@@ -1,1 +1,3 @@
-<a href="/">Home</a>
+<section>
+  <a href="/">Home</a>
+</section>
