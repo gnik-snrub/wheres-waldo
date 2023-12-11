@@ -13,6 +13,11 @@
     padding: 0;
     font-family: 'DotGothic16';
     color: #ccc;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  :global(body::-webkit-scrollbar) {
+    display: none;
   }
   header {
     max-height: 10%;
