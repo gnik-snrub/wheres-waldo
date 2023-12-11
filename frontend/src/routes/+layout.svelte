@@ -20,13 +20,17 @@
     display: none;
   }
   header {
-    max-height: 10%;
     margin: 0;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+    position: fixed;
   }
   h1 {
     text-align: center;
-    margin: 0;
-    padding-top: 0.7em;
+    margin: 0.7em 0;
+    text-shadow: 3px 3px 1px black;
+  }
   main {
     display: flex;
     align-items: center;
