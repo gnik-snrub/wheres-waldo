@@ -35,6 +35,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  :global(section) {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   :global(a, a:visited, a:active) {
     color: #ccc;
