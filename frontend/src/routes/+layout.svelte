@@ -1,8 +1,10 @@
 <header>
   <h1>Where's Warhammer 40K</h1>
 </header>
-<slot />
-  
+<main>
+  <slot />
+</main>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16');
   :global(body, html) {
@@ -20,6 +22,11 @@
     text-align: center;
     margin: 0;
     padding-top: 0.7em;
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   :global(a, a:visited, a:active) {
     color: #ccc;
     text-decoration: none;
