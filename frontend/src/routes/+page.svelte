@@ -1,19 +1,16 @@
 
-<main>
+<section id="homePage">
   <a href="/play">Start Game</a>
   <a href="/leaderboard">View Leaderboard</a>
-</main>
+</section>
 
 <style>
-  main {
+  #homePage {
     display: flex;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    width: 100%;
   }
   a {
     margin: 0 10%;
