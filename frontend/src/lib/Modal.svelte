@@ -1,6 +1,13 @@
 <script>
   import { slide } from 'svelte/transition'
 
+  import img1_marine from '/src/images/modal/img1_marine.png'
+  import img1_tyranid from '/src/images/modal/img1_tyranid.png'
+  import img2_helmet from '/src/images/modal/img2_helmet.png'
+  import img2_hood from '/src/images/modal/img2_hood.png'
+  import img3_marine from '/src/images/modal/img3_marine.png'
+  import img3_tyranid from '/src/images/modal/img3_tyranid.png'
+
   let modalVisible = false
   let mouseX, mouseY, imgX, imgY = 0
 
@@ -21,8 +28,12 @@
 
 {#if modalVisible}
   <div class='modal' on:click|stopPropagation transition:slide|local style="left: {mouseX}px; top: {mouseY}px">
-    <p>Page position: {mouseX}, {mouseY}</p>
-    <p>Image position: {imgX}, {imgY}</p>
+    <img src={img1_marine} />
+    <img src={img1_tyranid} />
+    <img src={img2_helmet} />
+    <img src={img2_hood} />
+    <img src={img3_marine} />
+    <img src={img3_tyranid} />
   </div>
 {/if}
 
