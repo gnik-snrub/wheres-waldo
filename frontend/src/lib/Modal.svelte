@@ -44,5 +44,7 @@
     border: 1px solid black;
     padding: 16px;
     background-color: skyblue;
+  img {
+    height: 7em;
   }
 </style>
