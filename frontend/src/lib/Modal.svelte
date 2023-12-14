@@ -41,9 +41,14 @@
 <style>
   .modal {
     position: absolute;
-    border: 1px solid black;
     padding: 16px;
-    background-color: skyblue;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
   img {
     height: 7em;
   }
