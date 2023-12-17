@@ -15,10 +15,8 @@
     if (modalVisible) {
       modalVisible = false
     } else {
-      const maxX = window.innerWidth - 100 //Arbitrary placeholder numbers
-      const maxY = document.body.scrollHeight - 60 //Arbitrary placeholder numbers
-      mouseX = Math.round(Math.min(e.clientX + window.pageXOffset, maxX))
-      mouseY = Math.round(Math.min(e.clientY + window.pageYOffset, maxY))
+      mouseX = Math.round(e.clientX + window.pageXOffset)
+      mouseY = Math.round(e.clientY + window.pageYOffset)
       imgX = e.offsetX
       imgY = e.offsetY
       modalVisible = true
@@ -27,7 +25,12 @@
 </script>
 
 {#if modalVisible}
-  <div class='modal' on:click|stopPropagation transition:slide|local style="left: {mouseX}px; top: {mouseY}px">
+  <div class='modal' on:click|stopPropagation transition:slide|local
+        style:left={mouseX < (window.innerWidth / 2) ? mouseX + "px" : null}
+        style:right={mouseX > (window.innerWidth / 2) ? window.innerWidth - mouseX + "px" : null}
+        style:top={mouseY < (window.innerHeight / 2) ? mouseY + "px" : null}
+        style:bottom={mouseY > (window.innerHeight / 2) ? window.innerHeight - mouseY + "px" : null}
+  >
     <img src={img1_marine} />
     <img src={img1_tyranid} />
     <img src={img2_helmet} />
@@ -42,8 +45,6 @@
   .modal {
     position: absolute;
     padding: 16px;
-    margin-right: 10px;
-    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.5);
