@@ -52,7 +52,4 @@
     color: #ccc;
     text-decoration: none;
   }
-  a:hover {
-    color: #fff;
-  }
 </style>
