@@ -51,6 +51,6 @@
     backdrop-filter: blur(5px);
   }
   img {
-    height: 7em;
+    height: min(10em, 7vw);
   }
 </style>
