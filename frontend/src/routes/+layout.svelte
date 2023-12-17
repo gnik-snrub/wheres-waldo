@@ -27,6 +27,7 @@
     position: fixed;
   }
   h1 {
+    font-size: min(2em, 8vw);
     text-align: center;
     margin: 0.7em 0;
     text-shadow: 3px 3px 1px black;
