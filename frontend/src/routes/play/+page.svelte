@@ -23,7 +23,7 @@ function onImageClick(e) {
 
 <style>
   img {
-    width: 1200px;
+    width: 70%;
     height: auto;
   }
   #gameArea {
@@ -33,5 +33,6 @@ function onImageClick(e) {
     background: black;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 6em;
   }
 </style>
