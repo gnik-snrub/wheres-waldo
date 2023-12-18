@@ -5,6 +5,7 @@
   <slot />
 </main>
 <img id="backgroundImage" src='/src/images/bg.png' />
+<div id="backgroundFade"/>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16');
@@ -39,6 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
   #backgroundImage {
     width: 100%;
     height: 100%;
@@ -47,6 +49,14 @@
     left: 0;
     z-index: -1;
   }
+  #backgroundFade {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1));
   }
   :global(section) {
     min-height: 100vh;
