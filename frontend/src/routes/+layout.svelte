@@ -36,12 +36,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at 25% 86%, rgba(1, 186, 239, 0.4) 0%, rgba(0, 0, 0, 0) 60%),
-                radial-gradient(circle at 92% 45%, rgba(233, 79, 55, 0.4) 0%, rgba(0, 0, 0, 0) 60%),
-                radial-gradient(circle at 87% 46%, rgba(4, 55, 242, 0.4) 0%, rgba(0, 0, 0, 0) 60%),
-                radial-gradient(circle at 7% 18%, rgba(233, 79, 55, 0.4) 0%, rgba(0, 0, 0, 0) 60%);
+    background: url('/src/images/bg.png');
     background-color: black;
     background-repeat: no-repeat;
+    background-size: contain;
   }
   :global(section) {
     min-height: 100vh;
