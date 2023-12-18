@@ -17,6 +17,9 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  :global(html) {
+    background-color: black;
+  }
   :global(body::-webkit-scrollbar) {
     display: none;
   }
@@ -24,7 +27,6 @@
     margin: 0;
     width: 100%;
     top: 0;
-    z-index: 9;
     position: absolute;
   }
   h1 {
@@ -37,7 +39,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
   #backgroundImage {
     width: 100%;
     height: 100%;
