@@ -30,7 +30,6 @@ function onImageClick(e) {
     margin-top: 6em;
     display: flex;
     width: 100%;
-    background: black;
     flex-direction: column;
     align-items: center;
     padding-bottom: 6em;
