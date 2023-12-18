@@ -24,7 +24,7 @@
     width: 100%;
     top: 0;
     z-index: 9;
-    position: fixed;
+    position: absolute;
   }
   h1 {
     font-size: min(2em, 8vw);
