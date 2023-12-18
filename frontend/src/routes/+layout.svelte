@@ -4,6 +4,7 @@
 <main>
   <slot />
 </main>
+<img id="backgroundImage" src='/src/images/bg.png' />
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16');
@@ -36,10 +37,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/src/images/bg.png');
     background-color: black;
-    background-repeat: no-repeat;
-    background-size: contain;
+  #backgroundImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
   }
   :global(section) {
     min-height: 100vh;
