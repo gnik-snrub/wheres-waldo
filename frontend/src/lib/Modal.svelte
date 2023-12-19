@@ -25,7 +25,7 @@
 </script>
 
 {#if modalVisible}
-  <div class='modal' on:click|stopPropagation transition:slide|local
+  <div id='modal' on:click|stopPropagation transition:slide|local
         style:left={mouseX < (window.innerWidth / 2) ? mouseX + "px" : null}
         style:right={mouseX > (window.innerWidth / 2) ? window.innerWidth - mouseX + "px" : null}
         style:top={mouseY < (window.innerHeight / 2) ? mouseY + "px" : null}
@@ -42,7 +42,7 @@
 
 
 <style>
-  .modal {
+  #modal {
     position: absolute;
     padding: 16px;
     display: flex;
