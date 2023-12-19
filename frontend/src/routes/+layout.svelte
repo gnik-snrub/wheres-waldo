@@ -1,9 +1,11 @@
 <header>
   <h1>Where's Warhammer 40K</h1>
 </header>
+
 <main>
   <slot />
 </main>
+
 <img id="backgroundImage" src='/src/images/bg.png' />
 <div id="backgroundFade"/>
 

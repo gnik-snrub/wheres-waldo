@@ -13,11 +13,11 @@ function onImageClick(e) {
 
 
 <section id="gameArea">
-  <a href="/">Home</a>
   <img src={marinevsnids} on:click={onImageClick} />
   <img src={grey_knights} on:click={onImageClick} />
   <img src={marinevsnids2} on:click={onImageClick} />
   <Modal bind:toggleModal={makeModal} />
+  <a href="/">Quit</a>
 </section>
 
 
@@ -32,6 +32,10 @@ function onImageClick(e) {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 6em;
+    margin-bottom: 6em;
+  }
+  a {
+    margin-top: 2em;
+    color: red;
   }
 </style>
