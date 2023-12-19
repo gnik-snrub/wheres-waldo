@@ -27,12 +27,30 @@ function onImageClick(e) {
     height: auto;
   }
   #gameArea {
-    margin-top: 6em;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
+    margin-top: 6em;
     margin-bottom: 6em;
+  }
+  @media screen and (max-width: 600px) {
+    img {
+      width: 80%;
+    }
+    #gameArea {
+      margin-bottom: 0em;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    img {
+      width: 90%;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    #gameArea {
+      margin-top: 1em;
+    }
   }
   a {
     margin-top: 2em;
