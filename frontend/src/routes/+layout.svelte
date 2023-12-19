@@ -12,7 +12,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DotGothic16');
   :global(body, html) {
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'DotGothic16';
@@ -50,6 +50,7 @@
     top: 0;
     left: 0;
     z-index: -1;
+    object-fit: cover;
   }
   #backgroundFade {
     width: 100%;
