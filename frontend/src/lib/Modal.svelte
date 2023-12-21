@@ -32,12 +32,12 @@
         style:top={mouseY < (window.innerHeight / 2) ? mouseY + "px" : null}
         style:bottom={mouseY > (window.innerHeight / 2) ? window.innerHeight - mouseY + "px" : null}
   >
-    <img src={img1_marine} />
-    <img src={img1_tyranid} />
-    <img src={img2_helmet} />
-    <img src={img2_hood} />
-    <img src={img3_marine} />
-    <img src={img3_tyranid} />
+    <img src={img1_marine} transition:blur />
+    <img src={img1_tyranid} transition:blur />
+    <img src={img2_helmet} transition:blur />
+    <img src={img2_hood} transition:blur />
+    <img src={img3_marine} transition:blur />
+    <img src={img3_tyranid} transition:blur />
   </div>
 {/if}
 
