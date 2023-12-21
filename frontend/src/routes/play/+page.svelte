@@ -1,23 +1,32 @@
 <script>
+  import { blur } from 'svelte/transition'
+  import { onMount } from 'svelte';
   import Modal from '/src/lib/Modal.svelte'
   import grey_knights from '/src/images/greyknights.jpeg'
   import marinevsnids from '/src/images/marinevsnids.jfif'
   import marinevsnids2 from '/src/images/marinevsnids2.jfif'
 
   let makeModal
+  let mounted = false
 
-function onImageClick(e) {
-  makeModal(e)
-}
+  onMount(() => {
+    mounted = true
+  })
+
+  function onImageClick(e) {
+    makeModal(e)
+  }
 </script>
 
 
 <section id="gameArea">
-  <img src={marinevsnids} on:click={onImageClick} />
-  <img src={grey_knights} on:click={onImageClick} />
-  <img src={marinevsnids2} on:click={onImageClick} />
-  <Modal bind:toggleModal={makeModal} />
-  <a href="/">Quit</a>
+  {#if mounted}
+    <img src={marinevsnids} transition:blur|local  on:click={onImageClick} />
+    <img src={grey_knights} transition:blur|local  on:click={onImageClick} />
+    <img src={marinevsnids2} transition:blur|local  on:click={onImageClick} />
+    <a href="/">Quit</a>
+    <Modal bind:toggleModal={makeModal} />
+  {/if}
 </section>
 
 
