@@ -5,6 +5,12 @@
   onMount(() => {
     mounted = true
   })
+  let listData = []
+
+  listData.push({name: 'Bob', time: 15})
+  listData.push({name: 'Jen', time: 25})
+  listData.push({name: 'Some long name, like a reaaaaaaaaaaaaaaaaaaaaaaaally long name', time: 10})
+  listData.push({name: 'Tim', time: 10})
 
   let counter = 0
   function increment() {
