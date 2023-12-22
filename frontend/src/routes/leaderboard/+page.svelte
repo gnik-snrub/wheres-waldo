@@ -28,7 +28,7 @@
         <h3>Name</h3>
         <h3>Time</h3>
       </li>
-      {#each listData as {name, time} }
+      {#each listData.sort((a, b) => a.time > b.time ? 1 : -1) as {name, time} }
         <li>
           <span>#{increment()}</span>
           <span>{name}</span>
