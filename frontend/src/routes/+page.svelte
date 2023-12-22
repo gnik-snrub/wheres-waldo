@@ -1,7 +1,17 @@
+<script>
+  import { blur } from 'svelte/transition'
+  import { onMount } from 'svelte';
+  let mounted = false
+  onMount(() => {
+    mounted = true
+  })
+</script>
 
 <section id="homePage">
-  <a href="/play">Start Game</a>
-  <a href="/leaderboard">View Leaderboard</a>
+  {#if mounted}
+    <a href="/play" transition:blur>Start Game</a>
+    <a href="/leaderboard" transition:blur>View Leaderboard</a>
+  {/if}
 </section>
 
 <style>
