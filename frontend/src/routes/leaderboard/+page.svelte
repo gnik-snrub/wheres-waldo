@@ -5,6 +5,12 @@
   onMount(() => {
     mounted = true
   })
+
+  let counter = 0
+  function increment() {
+    counter++
+    return counter
+  }
 </script>
 
 <section>
@@ -12,11 +18,13 @@
   {#if mounted}
     <ol transition:blur>
       <li>
+        <h3>#</h3>
         <h3>Name</h3>
         <h3>Time</h3>
       </li>
       {#each listData as {name, time} }
         <li>
+          <span>#{increment()}</span>
           <span>{name}</span>
           <span>{time} sec</span>
         </li>
