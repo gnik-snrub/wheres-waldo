@@ -65,6 +65,15 @@
     border-bottom: 1px solid #ccc;
     padding: 0.5em 0;
   }
+  h2, h3 {
+    color: #fff;
+  }
+  h3 {
+    letter-spacing: 0.15em;
+  }
+  ol li:not(:first-child) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
   li *:first-child {
     text-align: center;
   }
