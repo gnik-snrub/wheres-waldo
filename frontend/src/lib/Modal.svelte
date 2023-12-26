@@ -22,6 +22,14 @@
       modalVisible = true
     }
   }
+
+  function checkSuccess(number) {
+    const correctCoords = fakeTestAPI[number]
+    if (imgX >= correctCoords.x1 && imgX <= correctCoords.x2 &&
+        imgY >= correctCoords.y1 && imgY <= correctCoords.y2) {
+      console.log('yay')
+    } else { console.log('lmao, not even close dood')}
+  }
 </script>
 
 {#if modalVisible}
@@ -32,12 +40,12 @@
         style:top={mouseY < (window.innerHeight / 2) ? mouseY + "px" : null}
         style:bottom={mouseY > (window.innerHeight / 2) ? window.innerHeight - mouseY + "px" : null}
   >
-    <img src={img1_marine} transition:blur />
-    <img src={img1_tyranid} transition:blur />
-    <img src={img2_helmet} transition:blur />
-    <img src={img2_hood} transition:blur />
-    <img src={img3_marine} transition:blur />
-    <img src={img3_tyranid} transition:blur />
+    <img src={img1_marine} transition:blur on:click={() => {checkSuccess(0)}} />
+    <img src={img1_tyranid} transition:blur on:click={() => {checkSuccess(1)}}/>
+    <img src={img2_helmet} transition:blur on:click={() => {checkSuccess(2)}}/>
+    <img src={img2_hood} transition:blur on:click={() => {checkSuccess(3)}}/>
+    <img src={img3_marine} transition:blur on:click={() => {checkSuccess(4)}}/>
+    <img src={img3_tyranid} transition:blur on:click={() => {checkSuccess(5)}}/>
   </div>
 {/if}
 
