@@ -25,7 +25,7 @@
 </script>
 
 {#if modalVisible}
-  <div id="dot" transition:blur style:top={mouseY + "px"} style:left={mouseX + "px"} />
+  <div id="cross" transition:blur style:top={mouseY + "px"} style:left={mouseX + "px"}/>
   <div id='modal' on:click|stopPropagation transition:slide|local
         style:left={mouseX < (window.innerWidth / 2) ? mouseX + "px" : null}
         style:right={mouseX > (window.innerWidth / 2) ? window.innerWidth - mouseX + "px" : null}
@@ -43,14 +43,6 @@
 
 
 <style>
-  #dot {
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    translate: -5px -5px;
-    background-color: red;
-    border-radius: 5px;
-  }
   #modal {
     position: absolute;
     padding: 16px;
@@ -61,5 +53,17 @@
   }
   img {
     height: min(10em, 7vw);
+  }
+  #cross {
+    position: absolute;
+    translate: -50% -50%;
+  }
+  #cross:after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274c";
+    text-align: center;
   }
 </style>
