@@ -10,8 +10,9 @@
 
   let modalVisible = false
   let mouseX, mouseY, imgX, imgY = 0
+  let currentImageSelected = null
 
-  export function toggleModal(e) {
+  export function toggleModal(e, imageSelected) {
     if (modalVisible) {
       modalVisible = false
     } else {
@@ -20,16 +21,17 @@
       imgX = (e.offsetX / e.target.clientWidth) * 100
       imgY = (e.offsetY / e.target.clientHeight) * 100
       modalVisible = true
+      currentImageSelected = imageSelected
     }
   }
 
   const fakeTestAPI = [
-    {x1: 23, x2: 29, y1: 25, y2: 35},
-    {x1: 76, x2: 79, y1: 63, y2: 74},
-    {x1: 19, x2: 36, y1: 38, y2: 56},
-    {x1: 64, x2: 76, y1: 32, y2: 48},
-    {x1: 36, x2: 41, y1: 23, y2: 38},
-    {x1: 76, x2: 88, y1: 64, y2: 78}
+    {image: 1, x1: 23, x2: 29, y1: 25, y2: 35},
+    {image: 1, x1: 76, x2: 79, y1: 63, y2: 74},
+    {image: 2, x1: 19, x2: 36, y1: 38, y2: 56},
+    {image: 2, x1: 64, x2: 76, y1: 32, y2: 48},
+    {image: 3, x1: 36, x2: 41, y1: 23, y2: 38},
+    {image: 3, x1: 76, x2: 88, y1: 64, y2: 78}
   ]
 
   function checkSuccess(number) {
