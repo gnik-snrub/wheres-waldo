@@ -9,7 +9,7 @@
   import img3_tyranid from '/src/images/modal/img3_tyranid.png'
 
   let modalVisible = false
-  let mouseX, mouseY, imgX, imgY = 0
+  let mouseX, mouseY, absoluteX, absoluteY, imgX, imgY = 0
   let currentImageSelected = null
 
   export function toggleModal(e, imageSelected) {
@@ -18,6 +18,8 @@
     } else {
       mouseX = Math.round(e.clientX + window.pageXOffset)
       mouseY = Math.round(e.clientY + window.pageYOffset)
+      absoluteX = e.clientX
+      absoluteY = e.clientY + window.scrollY
       imgX = (e.offsetX / e.target.clientWidth) * 100
       imgY = (e.offsetY / e.target.clientHeight) * 100
       modalVisible = true
