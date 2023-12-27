@@ -17,19 +17,19 @@
     } else {
       mouseX = Math.round(e.clientX + window.pageXOffset)
       mouseY = Math.round(e.clientY + window.pageYOffset)
-      imgX = e.offsetX
-      imgY = e.offsetY
+      imgX = (e.offsetX / e.target.clientWidth) * 100
+      imgY = (e.offsetY / e.target.clientHeight) * 100
       modalVisible = true
     }
   }
 
   const fakeTestAPI = [
-    {x1: 120, x2: 153, y1: 86, y2: 112},
-    {x1: 387, x2: 405, y1: 203, y2: 233},
-    {x1: 325, x2: 387, y1: 121, y2: 186},
-    {x1: 94, x2: 188, y1: 144, y2: 220},
-    {x1: 190, x2: 214, y1: 47, y2: 84},
-    {x1: 389, x2: 453, y1: 139, y2: 161}
+    {x1: 23, x2: 29, y1: 25, y2: 35},
+    {x1: 76, x2: 79, y1: 63, y2: 74},
+    {x1: 19, x2: 36, y1: 38, y2: 56},
+    {x1: 64, x2: 76, y1: 32, y2: 48},
+    {x1: 36, x2: 41, y1: 23, y2: 38},
+    {x1: 76, x2: 88, y1: 64, y2: 78}
   ]
 
   function checkSuccess(number) {
