@@ -13,17 +13,18 @@
     mounted = true
   })
 
-  function onImageClick(e) {
-    makeModal(e)
+  function onImageClick(e, imageNum) {
+    makeModal(e, imageNum)
   }
+
 </script>
 
 
 <section id="gameArea">
   {#if mounted}
-    <img src={marinevsnids} transition:blur|local  on:click={onImageClick} />
-    <img src={grey_knights} transition:blur|local  on:click={onImageClick} />
-    <img src={marinevsnids2} transition:blur|local  on:click={onImageClick} />
+    <img src={marinevsnids} transition:blur|local  on:click={(e) => {onImageClick(e, 1)}} />
+    <img src={grey_knights} transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
+    <img src={marinevsnids2} transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
     <a href="/">Quit</a>
     <Modal bind:toggleModal={makeModal} />
   {/if}
