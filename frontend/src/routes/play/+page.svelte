@@ -30,6 +30,9 @@
     <img src={marinevsnids} transition:blur|local  on:click={(e) => {onImageClick(e, 1)}} />
     <img src={grey_knights} transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
     <img src={marinevsnids2} transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
+    {#each checkLocations as {x, y}}
+      <div id="foundCheck" style:left={x + 'px'} style:top={y + 'px'} />
+    {/each}
     <a href="/">Quit</a>
     <Modal bind:toggleModal={makeModal} check={addCheck} />
   {/if}
@@ -37,6 +40,18 @@
 
 
 <style>
+  #foundCheck {
+    position: absolute;
+    translate: -50% -50%;
+  }
+  #foundCheck:after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274c";
+    text-align: center;
+  }
   img {
     width: 70%;
     height: auto;
