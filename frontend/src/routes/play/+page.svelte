@@ -17,6 +17,11 @@
     makeModal(e, imageNum)
   }
 
+  let checkLocations = []
+
+  function addCheck(x, y) {
+    checkLocations = [...checkLocations, {x, y}]
+  }
 </script>
 
 
@@ -26,7 +31,7 @@
     <img src={grey_knights} transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
     <img src={marinevsnids2} transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
     <a href="/">Quit</a>
-    <Modal bind:toggleModal={makeModal} />
+    <Modal bind:toggleModal={makeModal} check={addCheck} />
   {/if}
 </section>
 
