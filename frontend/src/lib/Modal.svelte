@@ -36,13 +36,21 @@
     {image: 3, x1: 76, x2: 88, y1: 64, y2: 78}
   ]
 
+  let foundItems = []
+
+  export let check
+
   function checkSuccess(number) {
-    const correctCoords = fakeTestAPI[number]
-    if (imgX >= correctCoords.x1 && imgX <= correctCoords.x2 &&
-        imgY >= correctCoords.y1 && imgY <= correctCoords.y2) {
-      console.log('yay')
-    } else { console.log('lmao, not even close dood')}
+    const data = fakeTestAPI[number]
+    if (imgX >= data.x1 && imgX <= data.x2 &&
+        imgY >= data.y1 && imgY <= data.y2 &&
+        currentImageSelected === data.image &&
+        !foundItems.includes(data)) {
+      check(absoluteX, absoluteY)
+      foundItems = [...foundItems, data]
+    }
   }
+
 </script>
 
 {#if modalVisible}
