@@ -1,6 +1,7 @@
 <script>
   import { blur } from 'svelte/transition'
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation'
   import Modal from '/src/lib/Modal.svelte'
   import grey_knights from '/src/images/greyknights.jpeg'
   import marinevsnids from '/src/images/marinevsnids.jfif'
@@ -48,6 +49,17 @@
     if (checkLocations.length > 5) {
       userWon = true
     }
+  }
+
+  import { leaderboardData } from '/src/stores/testListData'
+
+  let playerName = ''
+
+  async function submitSuccess() {
+    // Temporary function until API is built
+    // Adds users name, and a time to leaderboard, and then takes user to leaderboard
+    leaderboardData.update(items => { return [...items, {name: playerName, time: 30}] })
+    goto('/leaderboard')
   }
 
 </script>
