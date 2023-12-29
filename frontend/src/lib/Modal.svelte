@@ -41,12 +41,12 @@
         style:top={mouseY < (window.innerHeight / 2) ? mouseY + "px" : null}
         style:bottom={mouseY > (window.innerHeight / 2) ? window.innerHeight - mouseY + "px" : null}
   >
-    <img src={img1_marine} transition:blur on:click={() => {checkSuccess(0)}} />
-    <img src={img1_tyranid} transition:blur on:click={() => {checkSuccess(1)}}/>
-    <img src={img2_helmet} transition:blur on:click={() => {checkSuccess(2)}}/>
-    <img src={img2_hood} transition:blur on:click={() => {checkSuccess(3)}}/>
-    <img src={img3_marine} transition:blur on:click={() => {checkSuccess(4)}}/>
-    <img src={img3_tyranid} transition:blur on:click={() => {checkSuccess(5)}}/>
+    <img src={img1_marine} alt="marine 1" transition:blur on:click={() => {checkSuccess(0)}} />
+    <img src={img1_tyranid} alt="tyranid 1" transition:blur on:click={() => {checkSuccess(1)}}/>
+    <img src={img2_helmet} alt="marine 2" transition:blur on:click={() => {checkSuccess(2)}}/>
+    <img src={img2_hood} alt="marine 3" transition:blur on:click={() => {checkSuccess(3)}}/>
+    <img src={img3_marine} alt="marine 4" transition:blur on:click={() => {checkSuccess(4)}}/>
+    <img src={img3_tyranid} alt="tyranid 2" transition:blur on:click={() => {checkSuccess(5)}}/>
   </div>
 {/if}
 

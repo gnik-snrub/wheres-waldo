@@ -67,9 +67,9 @@
 
 <section id="gameArea">
   {#if mounted}
-    <img src={marinevsnids} transition:blur|local  on:click={(e) => {onImageClick(e, 1)}} />
-    <img src={grey_knights} transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
-    <img src={marinevsnids2} transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
+    <img src={marinevsnids} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 1)}} />
+    <img src={grey_knights} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
+    <img src={marinevsnids2} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
     {#each checkLocations as {x, y}}
       <div id="foundCheck" style:left={x + 'px'} style:top={y + 'px'} />
     {/each}
