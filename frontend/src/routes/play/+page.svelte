@@ -41,6 +41,15 @@
       checkLocations = [...checkLocations, {x: absoluteX, y: absoluteY}]
     }
   }
+
+  let userWon = false
+
+  $: {
+    if (checkLocations.length > 5) {
+      userWon = true
+    }
+  }
+
 </script>
 
 
