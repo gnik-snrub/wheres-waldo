@@ -63,6 +63,16 @@
     {/each}
     <a href="/">Quit</a>
     <Modal bind:toggleModal={makeModal} check={addCheck} />
+    {#if userWon} 
+      <dialog open>
+        <h3>You won :D</h3>
+        <span>What's your name?</span>
+        <form on:submit|preventDefault={submitSuccess}>
+          <input bind:value={playerName} type="text" placeholder="John Smith"/>
+          <button>Submit</button>
+        </form>
+      </dialog>
+    {/if}
   {/if}
 </section>
 
@@ -113,5 +123,22 @@
   a {
     margin-top: 2em;
     color: red;
+  }
+  dialog {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    top: 50vh;
+    translate: 0 -50%;
+    color: #ccc;
+    border: 2px solid #ccc;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  dialog > * {
+    margin: 0;
+    padding: 0;
   }
 </style>
