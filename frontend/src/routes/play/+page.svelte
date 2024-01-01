@@ -71,7 +71,7 @@
     <img src={grey_knights} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
     <img src={marinevsnids2} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
     {#each checkLocations as {x, y}}
-      <div id="foundCheck" style:left={x + 'px'} style:top={y + 'px'} />
+      <div transition:blur id="foundCheck" style:left={x + 'px'} style:top={y + 'px'} />
     {/each}
     <a href="/">Quit</a>
     <Modal bind:toggleModal={makeModal} check={addCheck} />
@@ -99,7 +99,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    content: "\274c";
+    content: "\2714";
+    color: green;
+    font-size: 2em;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
     text-align: center;
   }
   img {
