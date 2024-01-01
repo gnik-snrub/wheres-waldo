@@ -29,6 +29,7 @@
 
   function checkSuccess(number) {
     check(number, imgX, imgY, absoluteX, absoluteY)
+    modalVisible = false
   }
 
 </script>
