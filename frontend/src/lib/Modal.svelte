@@ -1,5 +1,6 @@
 <script>
   import { slide, blur } from 'svelte/transition'
+  import { onMount } from 'svelte';
 
   import img1_marine from '/src/images/modal/img1_marine.png'
   import img1_tyranid from '/src/images/modal/img1_tyranid.png'
@@ -7,6 +8,19 @@
   import img2_hood from '/src/images/modal/img2_hood.png'
   import img3_marine from '/src/images/modal/img3_marine.png'
   import img3_tyranid from '/src/images/modal/img3_tyranid.png'
+
+  const gameImages = [img1_marine, img1_tyranid, img2_helmet, img2_hood, img3_marine, img3_tyranid]
+  const imageLoaded = [false, false, false, false, false, false]
+
+  onMount(() => {
+    gameImages.forEach((url, index) => {
+      const image = new Image()
+      image.src = url
+      image.onload = () => {
+        imageLoaded[index] = true
+      }
+    })
+  })
 
   let modalVisible = false
   let mouseX, mouseY, absoluteX, absoluteY, imgX, imgY = 0
@@ -34,7 +48,7 @@
 
 </script>
 
-{#if modalVisible}
+{#if modalVisible && imageLoaded.every(Boolean)}
   <div id="cross" transition:blur style:top={mouseY + "px"} style:left={mouseX + "px"}/>
   <div id='modal' on:click|stopPropagation transition:slide|local
         style:left={mouseX < (window.innerWidth / 2) ? mouseX + "px" : null}
