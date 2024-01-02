@@ -3,16 +3,25 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation'
   import Modal from '/src/lib/Modal.svelte'
+
+  let makeModal
+  let imageSelected = null
+
   import grey_knights from '/src/images/greyknights.jpeg'
   import marinevsnids from '/src/images/marinevsnids.jfif'
   import marinevsnids2 from '/src/images/marinevsnids2.jfif'
 
-  let makeModal
-  let mounted = false
-  let imageSelected = null
+  const gameImages = [grey_knights, marinevsnids, marinevsnids2]
+  const imageLoaded = [false, false, false]
 
   onMount(() => {
-    mounted = true
+    gameImages.forEach((url, index) => {
+      const image = new Image()
+      image.src = url
+      image.onload = () => {
+        imageLoaded[index] = true
+      }
+    })
   })
 
   function onImageClick(e, imageNum) {
@@ -66,7 +75,7 @@
 
 
 <section id="gameArea">
-  {#if mounted}
+  {#if imageLoaded.every(Boolean)}
     <img src={marinevsnids} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 1)}} />
     <img src={grey_knights} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 2)}} />
     <img src={marinevsnids2} alt="Game area" transition:blur|local  on:click={(e) => {onImageClick(e, 3)}} />
