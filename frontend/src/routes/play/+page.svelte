@@ -4,7 +4,7 @@
   import { goto } from '$app/navigation'
   import Modal from '/src/lib/Modal.svelte'
 
-  let makeModal
+  let makeModal, startTime
   let imageSelected = null
 
   import grey_knights from '/src/images/greyknights.jpeg'
@@ -14,7 +14,7 @@
   const gameImages = [grey_knights, marinevsnids, marinevsnids2]
   const imageLoaded = [false, false, false]
 
-  onMount(() => {
+  onMount(async () => {
     gameImages.forEach((url, index) => {
       const image = new Image()
       image.src = url
@@ -22,6 +22,9 @@
         imageLoaded[index] = true
       }
     })
+    const startTimeResponse = await fetch('http://localhost:3000/api/startGame')
+    const startTimeData = await startTimeResponse.json()
+    startTime = startTimeData.startTime
   })
 
   function onImageClick(e, imageNum) {
