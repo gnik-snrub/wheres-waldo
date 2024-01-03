@@ -34,16 +34,8 @@
 
   let foundItems = []
   let checkLocations = []
+  let userWon = false
 
-  function addCheck(selectedImageNumber, imgX, imgY, absoluteX, absoluteY) {
-    const data = fakeTestAPI[selectedImageNumber]
-    if (imgX >= data.x1 && imgX <= data.x2 &&
-        imgY >= data.y1 && imgY <= data.y2 &&
-        imageSelected === data.image &&
-        !foundItems.includes(data)) {
-      foundItems = [...foundItems, data]
-      checkLocations = [...checkLocations, {x: absoluteX, y: absoluteY}]
-    }
   async function getData(selectedImageNumber) {
     const data = new URLSearchParams()
     data.append('selectedImageNumber', selectedImageNumber)
@@ -54,10 +46,20 @@
     return await response.json()
   }
 
-  let userWon = false
+  let endTime
 
-  $: {
+  async function checkSuccess(selectedImageNumber, imgX, imgY, absoluteX, absoluteY) {
+    const results = await getData(selectedImageNumber)
+    if (imgX >= results.x1 && imgX <= results.x2 &&
+        imgY >= results.y1 && imgY <= results.y2 &&
+        imageSelected === results.image &&
+        !foundItems.includes(results)) {
+      foundItems = [...foundItems, results]
+      checkLocations = [...checkLocations, {x: absoluteX, y: absoluteY}]
+    }
+
     if (checkLocations.length > 5) {
+      endTime = results.endTime
       userWon = true
     }
   }
@@ -85,7 +87,7 @@
       <div transition:blur id="foundCheck" style:left={x + 'px'} style:top={y + 'px'} />
     {/each}
     <a href="/">Quit</a>
-    <Modal bind:toggleModal={makeModal} check={addCheck} />
+    <Modal bind:toggleModal={makeModal} check={checkSuccess} />
     {#if userWon} 
       <dialog open>
         <h3>You won :D</h3>
