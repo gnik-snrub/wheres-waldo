@@ -32,15 +32,6 @@
     imageSelected = imageNum
   }
 
-  const fakeTestAPI = [
-    {image: 1, x1: 23, x2: 29, y1: 25, y2: 35},
-    {image: 1, x1: 76, x2: 79, y1: 63, y2: 74},
-    {image: 2, x1: 19, x2: 36, y1: 38, y2: 56},
-    {image: 2, x1: 64, x2: 76, y1: 32, y2: 48},
-    {image: 3, x1: 36, x2: 41, y1: 23, y2: 38},
-    {image: 3, x1: 76, x2: 88, y1: 64, y2: 78}
-  ]
-
   let foundItems = []
   let checkLocations = []
 
@@ -53,6 +44,14 @@
       foundItems = [...foundItems, data]
       checkLocations = [...checkLocations, {x: absoluteX, y: absoluteY}]
     }
+  async function getData(selectedImageNumber) {
+    const data = new URLSearchParams()
+    data.append('selectedImageNumber', selectedImageNumber)
+    const response = await fetch('http://localhost:3000/api/checkSuccess', {
+      method: 'POST',
+      body: data
+    })
+    return await response.json()
   }
 
   let userWon = false
