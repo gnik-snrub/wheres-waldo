@@ -9,3 +9,5 @@ router.get('/checkSuccess', apiController.checkSuccess)
 
 router.post('/addToLeaderboard', apiController.pushToLeaderboard)
 router.get('/leaderboardData', apiController.getLeaderboardData)
+
+module.exports = router
