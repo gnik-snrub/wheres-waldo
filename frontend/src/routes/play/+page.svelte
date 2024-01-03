@@ -92,6 +92,7 @@
       <dialog open>
         <h3>You won :D</h3>
         <span>What's your name?</span>
+        <span>Time: {(endTime - startTime) / 1000} seconds</span>
         <form on:submit|preventDefault={submitSuccess}>
           <input bind:value={playerName} type="text" placeholder="John Smith"/>
           <button>Submit</button>
