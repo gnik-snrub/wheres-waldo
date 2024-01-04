@@ -1,10 +1,13 @@
 <script>
   import { blur } from 'svelte/transition'
   import { onMount } from 'svelte';
-  import { leaderboardData } from '/src/stores/testListData'
+
+  let leaderboardData
 
   let mounted = false
-  onMount(() => {
+  onMount(async () => {
+    const apiResponse = await fetch('http://localhost:3000/api/leaderboardData')
+    leaderboardData = await apiResponse.json()
     mounted = true
   })
 
@@ -24,7 +27,7 @@
         <h3>Name</h3>
         <h3>Time</h3>
       </li>
-      {#each $leaderboardData.sort((a, b) => a.time > b.time ? 1 : -1) as {name, time} }
+      {#each leaderboardData.sort((a, b) => a.time > b.time ? 1 : -1) as {name, time} }
         <li>
           <span>#{increment()}</span>
           <span>{name}</span>
