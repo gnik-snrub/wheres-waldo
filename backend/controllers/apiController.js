@@ -29,3 +29,7 @@ exports.pushToLeaderboard = async(req, res) => {
   res.json({id: newLeaderboardEntry._id})
 }
 
+exports.getLeaderboardData = async(req, res) => {
+  let allLeaderboardEntries = await LeaderboardEntry.find()
+  res.json(allLeaderboardEntries)
+}
