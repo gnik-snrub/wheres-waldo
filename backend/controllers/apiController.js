@@ -1,3 +1,5 @@
+const LeaderboardEntry = require('../models/leaderboardEntry')
+
 exports.startGame = async(req, res) => {
   res.status(200).json({startTime: new Date().getTime()})
 }
@@ -16,5 +18,14 @@ exports.checkSuccess = async(req, res) => {
       endTime: new Date().getTime(),
       ...successLocations[req.body.selectedImageNumber]
     })
+}
+
+exports.pushToLeaderboard = async(req, res) => {
+  const newLeaderboardEntry = new LeaderboardEntry({
+    name: req.body.name,
+    time: req.body.time
+  })
+  await newLeaderboardEntry.save()
+  res.json({id: newLeaderboardEntry._id})
 }
 
