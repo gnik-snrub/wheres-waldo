@@ -69,9 +69,13 @@
   let playerName = ''
 
   async function submitSuccess() {
-    // Temporary function until API is built
-    // Adds users name, and a time to leaderboard, and then takes user to leaderboard
-    leaderboardData.update(items => { return [...items, {name: playerName, time: 30}] })
+    const data = new URLSearchParams()
+    data.append('name', playerName)
+    data.append('time', (endTime - startTime) / 1000)
+    await fetch('http://localhost:3000/api/addToLeaderboard', {
+      method: 'POST',
+      body: data
+    })
     goto('/leaderboard')
   }
 
