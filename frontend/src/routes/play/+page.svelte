@@ -22,7 +22,7 @@
         imageLoaded[index] = true
       }
     })
-    const startTimeResponse = await fetch('http://localhost:3000/api/startGame')
+    const startTimeResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/startGame`)
     const startTimeData = await startTimeResponse.json()
     startTime = startTimeData.startTime
   })
@@ -39,7 +39,7 @@
   async function getData(selectedImageNumber) {
     const data = new URLSearchParams()
     data.append('selectedImageNumber', selectedImageNumber)
-    const response = await fetch('http://localhost:3000/api/checkSuccess', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/checkSuccess`, {
       method: 'POST',
       body: data
     })
@@ -72,7 +72,7 @@
     const data = new URLSearchParams()
     data.append('name', playerName)
     data.append('time', (endTime - startTime) / 1000)
-    await fetch('http://localhost:3000/api/addToLeaderboard', {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/addToLeaderboard`, {
       method: 'POST',
       body: data
     })

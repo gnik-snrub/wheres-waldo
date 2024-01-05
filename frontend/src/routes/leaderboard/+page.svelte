@@ -6,7 +6,7 @@
 
   let mounted = false
   onMount(async () => {
-    const apiResponse = await fetch('http://localhost:3000/api/leaderboardData')
+    const apiResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/leaderboardData`)
     leaderboardData = await apiResponse.json()
     mounted = true
   })
