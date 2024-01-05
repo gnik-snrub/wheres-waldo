@@ -1,3 +1,7 @@
+<script>
+  import bg from '/src/images/bg.png'
+</script>
+
 <header>
   <h1>Where's Warhammer 40K</h1>
 </header>
@@ -6,7 +10,7 @@
   <slot />
 </main>
 
-<img id="backgroundImage" src='/src/images/bg.png' />
+<img id="backgroundImage" src={bg}/>
 <div id="backgroundFade"/>
 
 <style>
