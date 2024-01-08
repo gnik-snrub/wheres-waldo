@@ -6,9 +6,9 @@
 
   let mounted = false
   onMount(async () => {
+    mounted = true
     const apiResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/leaderboardData`)
     leaderboardData = await apiResponse.json()
-    mounted = true
   })
 
   let counter = 0
@@ -21,21 +21,29 @@
 <section>
   <h2>Leaderboard</h2>
   {#if mounted}
-    <ol transition:blur>
+    <ol>
       <li>
         <h3>#</h3>
         <h3>Name</h3>
         <h3>Time</h3>
       </li>
-      {#each leaderboardData.sort((a, b) => a.time > b.time ? 1 : -1) as {name, time} }
+      {#if leaderboardData}
+        {#each leaderboardData.sort((a, b) => a.time > b.time ? 1 : -1) as {name, time} }
+          <li>
+            <span>#{increment()}</span>
+            <span>{name}</span>
+            <span>{time} sec</span>
+          </li>
+        {/each}
+      {:else}
         <li>
-          <span>#{increment()}</span>
-          <span>{name}</span>
-          <span>{time} sec</span>
+          <span />
+          <span>Contacting server...</span>
+          <span />
         </li>
-      {/each}
+      {/if}
     </ol>
-    <a href="/">Back</a>
+    <a href="/" transition:blur>Back</a>
   {/if}
 </section>
 
