@@ -2,6 +2,10 @@
   import bg from '/src/images/bg.png'
 </script>
 
+<svelte:head>
+  <title>Where's Warhammer 40K</title>
+</svelte:head>
+
 <header>
   <h1>Where's Warhammer 40K</h1>
 </header>
