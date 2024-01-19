@@ -105,6 +105,7 @@
     <dialog transition:blur open>
       Contacting server...
     </dialog>
+    <a href="/">Back</a>
   {/if}
 </section>
 
