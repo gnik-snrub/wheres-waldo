@@ -92,7 +92,7 @@
     <Modal bind:toggleModal={makeModal} check={checkSuccess} />
     {#if userWon} 
       <dialog open>
-        <h3>You won :D</h3>
+        <h3>You won!</h3>
         <span>What's your name?</span>
         <span>Time: {(endTime - startTime) / 1000} seconds</span>
         <form on:submit|preventDefault={submitSuccess}>
@@ -176,5 +176,34 @@
   dialog > * {
     margin: 0;
     padding: 0;
+  }
+  input {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border: none;
+    color: #ccc;
+  }
+  input:focus {
+    outline: none;
+  }
+  input::placeholder {
+    color: #777;
+  }
+  input:focus::placeholder {
+    position: relative;
+    color: #999;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+  button {
+    border: none;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+  }
+  button:focus {
+    text-decoration: underline;
+    text-underline-offset: .2em;
+    outline: none;
   }
 </style>
